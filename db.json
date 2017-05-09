@@ -1,0 +1,53 @@
+{
+    "polls": [{
+        "id": 1,
+        "movieIds": [1, 2, 3],
+        "title": "Which movie has the best lead character?"
+    }],
+    "movies": [{
+        "id": 1,
+        "title": "Avatar",
+        "description": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "director": "James Cameron",
+        "year": 2009,
+        "genres": "Action, Adventure, Fantasy, Sci-Fi",
+        "imageUrl": "http://i.imgur.com/lvp3Jev.png"
+    }, {
+        "id": 2,
+        "title": "Logan",
+        "description": "In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.",
+        "director": "James Mangold",
+        "year": 2017,
+        "genres": "Action, Drama, Sci-Fi, Thriller",
+        "imageUrl": "http://i.imgur.com/T9dd4i1.jpg"
+    }, {
+        "id": 3,
+        "title": "Brave",
+        "description": "Determined to make her own path in life, Princess Merida defies a custom that brings chaos to her kingdom. Granted one wish, Merida must rely on her bravery and her archery skills to undo a beastly curse.",
+        "director": "Mark Andrews",
+        "year": 2012,
+        "genres": "Animation, Adventure, Comedy, Family, Fantasy",
+        "imageUrl": "http://i.imgur.com/sBIL1MV.jpg"
+    }],
+    "votes": [{
+        "id": 1,
+        "pollId": 1,
+        "movieId": 2,
+        "name": "James"
+    }, {
+        "id": 2,
+        "pollId": 1,
+        "movieId": 3,
+        "name": "Laura"
+    }, {
+        "id": 3,
+        "pollId": 1,
+        "movieId": 1,
+        "name": "Dan"
+    }, {
+        "id": 4,
+        "pollId": 1,
+        "movieId": 3,
+        "name": "Steve"
+    }]
+}
