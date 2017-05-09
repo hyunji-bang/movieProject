@@ -1,0 +1,30 @@
+.movieList img {
+  width: 100%; }
+
+.movieList ul {
+  display: flex; }
+  .movieList ul li {
+    flex-basis: 33.333%; }
+
+.movieList__pic {
+  background: #f00; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  color: #fa6462; }
