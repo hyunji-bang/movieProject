@@ -20,14 +20,41 @@ module.exports = {
                     exclude: /node_modules/,
                     query: {
                         cacheDirectory: true,
+                        plugins: ['transform-class-properties'],
                         presets: ['es2015', 'react']
                     }
                 },
                 {
-                    test: /\.css$/,
-                    loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                    test: /\.(scss|sass)$/,
+                    use: [
+                        {
+                            loader: 'style-loader',
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                                importLoaders: 1,
+                                localIdentName: '[local]',
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                        },
+                    ]
                 },
-
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1
+                            }
+                        }
+                    ],
+                }
             ]
         }
 };
