@@ -2,7 +2,7 @@ import React from 'react';
 
 const Movie = () => {
     return (
-        <li className="MovieItem">
+        <li className="MoviePolls__Content__MovieList__Item">
                 영화
         </li>
     );

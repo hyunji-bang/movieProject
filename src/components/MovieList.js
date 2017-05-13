@@ -3,7 +3,7 @@ import { Movie } from './';
 
 const MovieList = () => {
     return (
-        <ul className="MovieList">
+        <ul className="MoviePolls__Content__MovieList">
             <Movie/>
             <Movie/>
             <Movie/>
