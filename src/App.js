@@ -6,20 +6,33 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state={
-            pollTitle: ''
+            pollTitle: '',
+            movieTitle: ''
         }
     }
     // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
-    componentDidMount() { 
-        this.fetchPostInfo(1);
+    componentDidMount() {
+        this.fetchPollInfo(1);
+        this.fetchMovieInfo(1);
     }
 
-    fetchPostInfo = async (pollId) => {
+    fetchPollInfo = async (pollId) => {
         const poll = await service.getTitle(pollId);
         const pollTitle = poll.data.title;
+
         console.log(pollTitle);
         this.setState({
             pollTitle
+        });
+    }
+
+    fetchMovieInfo = async (movieId) => {
+        const movie = await service.getMovie(movieId);
+        const movieTitle = movie.data.title;
+
+        console.log(movieTitle);
+        this.setState({
+            movieTitle
         });
     }
 
@@ -27,8 +40,8 @@ class App extends Component {
         return (
             <div>
                 <Wrapper>
-                    <Header title={this.state.pollTitle}/>
-                    <MovieWrap/>
+                    <Header pollTitle={this.state.pollTitle}/>
+                    <MovieWrap movieTitle={this.state.movieTitle}/>
                 </Wrapper>
             </div>
         );

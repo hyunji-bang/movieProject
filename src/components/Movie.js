@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Movie = () => {
+const Movie = (props) => {
     return (
         <li className="MoviePolls__Content__MovieList__Item">
-                영화
+            {props.movieTitle}
         </li>
     );
 };

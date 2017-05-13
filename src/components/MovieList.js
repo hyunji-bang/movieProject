@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Movie } from './';
 
-const MovieList = () => {
+const MovieList = (props) => {
     return (
         <ul className="MoviePolls__Content__MovieList">
-            <Movie/>
-            <Movie/>
-            <Movie/>
+            <Movie movieTitle={props.movieTitle}/>
         </ul>
     );
 };

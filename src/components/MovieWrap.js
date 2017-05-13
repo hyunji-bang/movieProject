@@ -1,9 +1,9 @@
 import React from 'react';
 import { MovieList, SubmitPoll } from './';
 
-const MovieWrap = () => (
+const MovieWrap = (props) => (
     <div className="MoviePolls__Content">
-        <MovieList/>
+        <MovieList movieTitle={props.movieTitle}></MovieList>
         <SubmitPoll/>
     </div>
 );
