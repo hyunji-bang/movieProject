@@ -4,7 +4,10 @@ import { Movie } from './';
 const MovieList = (props) => {
     return (
         <ul className="MoviePolls__Content__MovieList">
-            <Movie movieTitle={props.movieTitle}/>
+
+            {props.movieInfo.map((i, key) => {
+                return  <Movie data={i} key={key} />
+            })}
         </ul>
     );
 };
