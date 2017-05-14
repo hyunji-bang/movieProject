@@ -3,12 +3,12 @@ import { Movie } from './';
 
 const MovieList = (props) => {
     return (
-        <ul className="MoviePolls__Content__MovieList">
+        <section className="MoviePolls__MovieList">
 
             {props.movieInfo.map((i, key) => {
-                return  <Movie data={i} key={key} />
+                return  <Movie data={i} key={key} toggleModal={props.toggleModal} />
             })}
-        </ul>
+        </section>
     );
 };
 

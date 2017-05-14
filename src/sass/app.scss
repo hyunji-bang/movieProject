@@ -1,8 +1,11 @@
 @import 'config';
 @import 'header';
 @import 'movie';
-@import 'submitpoll';
+@import 'modalwrap';
 
+* {
+    box-sizing: border-box;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -23,7 +26,10 @@ ul {
     padding: 0;
 }
 
-#root {
-    height: 100%;
-    background: #ddd;
+dl, dd {
+    margin: 0;
+}
+
+section, article, figure {
+    margin: 0;
 }

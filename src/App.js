@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Wrapper, Header, MovieWrap } from './components';
+import { Wrapper, Header, MovieWrap, ModalWrap } from './components';
 import * as service from './services/post';
 
 class App extends Component {
@@ -7,14 +7,22 @@ class App extends Component {
         super(props);
         this.state={
             pollTitle: '',
-            movieInfo: []
+            movieInfo: [],
+            visibility: false
         }
+        this.toggleModal = this.toggleModal.bind(this);
     }
+
+    toggleModal() {
+        this.setState({ visibility: !this.state.visibility });
+    }
+
     // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
     componentDidMount() {
         this.fetchPollInfo(1);
         this.fetchMovieInfo();
     }
+
 
     fetchPollInfo = async (pollId) => {
         const poll = await service.getTitle(pollId);
@@ -36,13 +44,12 @@ class App extends Component {
 
     render() {
         return (
-            <div>
                 <Wrapper>
                     <Header pollTitle={this.state.pollTitle}/>
-                    <MovieWrap movieInfo={this.state.movieInfo}
-                    />
+                    <MovieWrap movieInfo={this.state.movieInfo} 
+                               toggleModal={this.toggleModal} />
+                    {this.state.visibility ? <ModalWrap toggleModal={this.toggleModal}/> : ""}
                 </Wrapper>
-            </div>
         );
     }
 }

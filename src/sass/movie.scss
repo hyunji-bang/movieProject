@@ -1,15 +1,27 @@
-.MoviePolls__Content {
+.MoviePolls {
+    position: relative;
+    background: $color-bg;
 
     &__MovieList{
-        padding: 1rem;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+
+        padding: 1.5rem 3rem;
 
         &__Item{
             padding: 1rem;
-            margin-bottom: 2rem;
-            background-color: #FAFAFA;
+            background-color: #fff;
             box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
+            width: 31%;
+
+            img {
+                width: 100%
+            }
         }
-
     }
-
 }
