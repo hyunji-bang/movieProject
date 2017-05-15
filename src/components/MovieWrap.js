@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieList, SubmitPoll } from './';
+import { MovieList } from './';
 
 const MovieWrap = (props) => (
         <MovieList movieInfo={props.movieInfo}

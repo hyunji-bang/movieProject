@@ -2,7 +2,7 @@
     background: rgba(10%, 10%, 10%, 0.8);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -13,7 +13,6 @@
     -moz-box-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
-    position: fixed;
 
     .Modal {
         width: 400px;

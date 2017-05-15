@@ -13,14 +13,17 @@
 
         padding: 1.5rem 3rem;
 
-        &__Item{
+        &__item{
             padding: 1rem;
             background-color: #fff;
             box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
             width: 31%;
 
-            img {
-                width: 100%
+            figure{
+                cursor: pointer;
+                img {
+                    width: 100%
+                }
             }
         }
     }

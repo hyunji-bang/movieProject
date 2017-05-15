@@ -8,13 +8,15 @@ class App extends Component {
         this.state={
             pollTitle: '',
             movieInfo: [],
-            visibility: false
+            visibility: false,
+            selectedData: {}
         }
         this.toggleModal = this.toggleModal.bind(this);
     }
 
-    toggleModal() {
-        this.setState({ visibility: !this.state.visibility });
+    toggleModal(data) {
+        //console.log(data);
+        this.setState({ visibility: !this.state.visibility, selectedData: data});
     }
 
     // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
@@ -48,7 +50,9 @@ class App extends Component {
                     <Header pollTitle={this.state.pollTitle}/>
                     <MovieWrap movieInfo={this.state.movieInfo} 
                                toggleModal={this.toggleModal} />
-                    {this.state.visibility ? <ModalWrap toggleModal={this.toggleModal}/> : ""}
+                    {this.state.visibility ? <ModalWrap movieInfo={this.state.movieInfo} 
+                                                        toggleModal={this.toggleModal} 
+                                                        selectedData={this.state.selectedData}/> : ""}
                 </Wrapper>
         );
     }
