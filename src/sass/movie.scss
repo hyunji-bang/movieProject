@@ -41,11 +41,18 @@
             &__desc {
                 font-size: 0.9rem;
                 padding: 0;
-                .movieDirector, .movieGenres {
+                .movieDirector {
                     font-weight: bold;
+                    margin-bottom: 2%;
+                    font-size: 1rem;
+                }
+                .movieGenres {
+                    font-weight: bold;
+                    font-size: 0.8rem;
                 }
                 .movieDesc {
                     margin-top: 10px;
+                    color: $color-font-h;
                 }
             }
         }
