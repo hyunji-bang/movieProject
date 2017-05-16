@@ -1,0 +1,54 @@
+.MoviePolls{
+    position: relative;
+    background: $color-bg;
+    min-height: 100vh;
+
+    &__MovieList {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 3rem;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+
+        &__item {
+            background-color: #fff;
+            box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
+            width: 31%;
+            padding: 1rem;
+            border-radius: 5px;
+            h2 {
+                span {
+                    font-weight: normal;
+                    font-size: 1rem;
+                    vertical-align: middle;
+                }
+            }
+
+            figure {
+                cursor: pointer;
+                margin-bottom: 10%;
+
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            &__desc {
+                font-size: 0.9rem;
+                padding: 0;
+                .movieDirector, .movieGenres {
+                    font-weight: bold;
+                }
+                .movieDesc {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+

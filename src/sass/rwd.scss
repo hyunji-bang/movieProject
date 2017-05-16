@@ -1,0 +1,70 @@
+@media only screen and (max-width: 603px){
+    .MoviePolls{
+        .Modal {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            border-top: 10px $color-main solid;
+        }
+        &__title {
+            font-size: 1.7rem;
+        }
+        &__MovieList {
+            flex-direction: column;
+            padding: 2rem 3rem;
+            &__item{
+                padding: 1rem 2rem;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: 5%;
+                &__desc {
+                    font-size: 1rem;
+                }
+                figure {
+                    width: 45%;
+                    float: left;
+                    margin-right: 6%;
+                    margin-bottom: 3%;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    .MoviePolls{
+        &__MovieList {
+            padding: 2rem;
+        }
+    }
+}
+@media only screen and (max-width: 414px){
+    .MoviePolls {
+        &__title {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+        }
+        &__MovieList {
+            &__item {
+
+                &__desc {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 360px){
+    .MoviePolls {
+        &__MovieList {
+            &__item {
+                h2 {
+                    text-align: center;
+                }
+                figure {
+                    width: 100%;
+                    float: none;
+                }
+            }
+        }
+    }
+}
