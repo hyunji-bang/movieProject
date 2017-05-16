@@ -1,8 +1,9 @@
-.Header {
-    background-color: $color-main;
-    color: white;
+.MoviePolls__title {
+    background: white;
+    color: $color-main;
+    border-bottom: 2px $color-main solid;
     font-size: 2rem;
-    padding: 1.2rem;
+    padding: 1.5rem 3rem;
     text-align: center;
     font-weight: 600;
 }

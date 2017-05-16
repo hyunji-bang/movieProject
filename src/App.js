@@ -1,25 +1,59 @@
 import React, { Component } from 'react';
-import { Wrapper, Header, MovieWrap } from './components';
+import { Wrapper, Header, MovieWrap, ModalWrap } from './components';
 import * as service from './services/post';
 
 class App extends Component {
-    fetchPostInfo = async (pollId) => {
-        const poll = await service.getTitle(pollId);
-        console.log(poll);
+    constructor(props){
+        super(props);
+        this.state={
+            pollTitle: '',
+            movieInfo: [],
+            modalVisible: false,
+            selectedData: {}
+        }
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
-    componentDidMount() { // 데이터 불러오기
-        this.fetchPostInfo(1);
+    toggleModal(data) {
+        //console.log(data);
+        this.setState({ modalVisible: !this.state.modalVisible, selectedData: data});
+    }
+
+    // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
+    componentDidMount() {
+        this.fetchPollInfo(1);
+        this.fetchMovieInfo();
+    }
+
+
+    fetchPollInfo = async (pollId) => {
+        const poll = await service.getTitle(pollId);
+        const pollTitle = poll.data.title;
+
+        this.setState({
+            pollTitle
+        });
+    }
+
+    fetchMovieInfo = async () => {
+        const movieInfoObj = await service.getMovie();
+        const movieInfo = movieInfoObj.data;
+
+        this.setState({
+            movieInfo
+        });
     }
 
     render() {
         return (
-            <div>
                 <Wrapper>
-                    <Header/>
-                    <MovieWrap/>
+                    <Header pollTitle={this.state.pollTitle}/>
+                    <MovieWrap movieInfo={this.state.movieInfo} 
+                               toggleModal={this.toggleModal} />
+                    {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
+                                                        toggleModal={this.toggleModal} 
+                                                        selectedData={this.state.selectedData}/> : ""}
                 </Wrapper>
-            </div>
         );
     }
 }

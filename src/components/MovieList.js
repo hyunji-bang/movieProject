@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Movie } from './';
 
-const MovieList = () => {
+const MovieList = (props) => {
     return (
-        <ul className="MovieList">
-            <Movie/>
-            <Movie/>
-            <Movie/>
-        </ul>
+        <section className="MoviePolls__MovieList">
+            {props.movieInfo.map((i, key) => {
+                return  <Movie data={i} key={key} toggleModal={props.toggleModal} movieInfo={props.movieInfo}/>
+            })}
+        </section>
     );
 };
 
