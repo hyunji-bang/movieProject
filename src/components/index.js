@@ -12,5 +12,4 @@ export {
     Movie,
     MovieList,
     MovieWrap,
-    ModalWrap
-};
+    ModalWrap=
