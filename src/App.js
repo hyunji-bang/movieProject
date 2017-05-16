@@ -8,7 +8,7 @@ class App extends Component {
         this.state={
             pollTitle: '',
             movieInfo: [],
-            visibility: false,
+            modalVisible: false,
             selectedData: {}
         }
         this.toggleModal = this.toggleModal.bind(this);
@@ -16,7 +16,7 @@ class App extends Component {
 
     toggleModal(data) {
         //console.log(data);
-        this.setState({ visibility: !this.state.visibility, selectedData: data});
+        this.setState({ modalVisible: !this.state.modalVisible, selectedData: data});
     }
 
     // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
@@ -35,7 +35,7 @@ class App extends Component {
         });
     }
 
-    fetchMovieInfo = async (movieId) => {
+    fetchMovieInfo = async () => {
         const movieInfoObj = await service.getMovie();
         const movieInfo = movieInfoObj.data;
 
@@ -50,7 +50,7 @@ class App extends Component {
                     <Header pollTitle={this.state.pollTitle}/>
                     <MovieWrap movieInfo={this.state.movieInfo} 
                                toggleModal={this.toggleModal} />
-                    {this.state.visibility ? <ModalWrap movieInfo={this.state.movieInfo} 
+                    {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
                                                         toggleModal={this.toggleModal} 
                                                         selectedData={this.state.selectedData}/> : ""}
                 </Wrapper>
