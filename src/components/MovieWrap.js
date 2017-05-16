@@ -1,11 +1,10 @@
 import React from 'react';
-import { MovieList, SubmitPoll } from './';
+import { MovieList } from './';
 
-const MovieWrap = () => (
-    <div className="MovieWrap">
-        <MovieList/>
-        <SubmitPoll/>
-    </div>
+const MovieWrap = (props) => (
+        <MovieList movieInfo={props.movieInfo}
+                   toggleModal={props.toggleModal}
+        />
 );
 
 export default MovieWrap;

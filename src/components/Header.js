@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Header = () => (
-    <h1 className="Header">
-        타이틀
-    </h1>
-)
+const Header = (props) => {
+    return (
+        <header>
+            <h1 className="MoviePolls__title">{props.pollTitle}</h1>
+        </header>
+    )
+}
 
 export default Header;
