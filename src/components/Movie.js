@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Movie = (props) => {
+const Movie = (props) => { // movieInfo, toggleModal, selectedData
     return (
         <article className="MoviePolls__MovieList__item">
             <h2>{props.data.title} <span>({props.data.year})</span></h2>

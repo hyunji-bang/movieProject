@@ -1,7 +1,7 @@
 import React from 'react';
 import { MovieList } from './';
 
-const MovieWrap = (props) => (
+const MovieWrap = (props) => ( // movieInfo, toggleModal, selectedData
         <MovieList movieInfo={props.movieInfo}
                    toggleModal={props.toggleModal}
         />

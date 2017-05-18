@@ -44,6 +44,12 @@ class App extends Component {
         });
     }
 
+    sendVote = async (pollId, movieId) => {
+        console.log(pollId, movieId);
+        const vote = await service.postVote(pollId, movieId);
+        //console.log(vote);
+    }
+
     render() {
         return (
                 <Wrapper>
@@ -52,7 +58,8 @@ class App extends Component {
                                toggleModal={this.toggleModal} />
                     {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
                                                         toggleModal={this.toggleModal} 
-                                                        selectedData={this.state.selectedData}/> : ""}
+                                                        selectedData={this.state.selectedData}
+                                                        sendVote={this.sendVote}/> : ""}
                 </Wrapper>
         );
     }
