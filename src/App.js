@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Wrapper, Header, MovieWrap, ModalWrap } from './components';
 import * as service from './services/post';
+
+import PollList from './routes/PollList';
+import NewPoll from './routes/NewPoll';
+import MoviePolls from './routes/MoviePolls';
 
 class App extends Component {
     constructor(props){
@@ -46,14 +51,14 @@ class App extends Component {
 
     render() {
         return (
+            <Router>
                 <Wrapper>
-                    <Header pollTitle={this.state.pollTitle}/>
-                    <MovieWrap movieInfo={this.state.movieInfo} 
-                               toggleModal={this.toggleModal} />
-                    {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
-                                                        toggleModal={this.toggleModal} 
-                                                        selectedData={this.state.selectedData}/> : ""}
+                    <Header/>
+                    <Route exact path="/" component={PollList}></Route>
+                    <Route path="/moviepolls" component={MoviePolls}/>
+                    <Route path="/newpoll" component={NewPoll}/>
                 </Wrapper>
+            </Router>
         );
     }
 }
