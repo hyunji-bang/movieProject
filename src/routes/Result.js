@@ -2,9 +2,9 @@ import React from 'react';
 
 const Result = () => {
     return (
-        <div>
-            Result
-        </div>
+        <section className="Result MoviePolls__section">
+            <h2>Poll Result</h2>
+        </section>
     )
 }
 

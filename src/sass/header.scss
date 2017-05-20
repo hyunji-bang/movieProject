@@ -1,34 +1,36 @@
 .MoviePolls {
-    &__title {
+    header {
         background: white;
-        color: $color-main;
-        font-size: 2rem;
+    }
+    &__title {
         padding: 1.5rem 3rem;
         text-align: center;
-        font-weight: 600;
+        a {
+            color: $color-main;
+            font-size: 2rem;
+            font-weight: 600;
+        }
     }
 
     &__Menu {
-        height: 3.5rem;
-        background: #fff;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 0.3rem;
 
         &__item {
-            line-height: 3.5rem;
+            height: 3rem;
+            line-height: 3rem;
             width: 50%;
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
-            display: inline-block;
-            background-color: $color-main;
+            display: inline-block;            
             border-radius: 0.4rem 0.4rem 0 0;
-
-            &:first-child {
-                a {
-                    border-right: 1px $color-bg solid;
-                }
-            }
+            border-left: 0.1rem #fff solid;
+            border-right: 0.1rem #fff solid;
 
             a {
+                background-color: $color-main;
                 color: white;
                 text-decoration: none;
                 font-size: 1rem;
@@ -42,7 +44,7 @@
                 }
 
                 &:active, &.active {
-                    background-color: #fff;
+                    background-color: $color-bg;
                 }
             }
         }

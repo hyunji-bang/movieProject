@@ -4,8 +4,9 @@ import { Wrapper, Header, MovieWrap, ModalWrap } from './components';
 import * as service from './services/post';
 
 import PollList from './routes/PollList';
+import PollItem from './routes/PollItem';
 import NewPoll from './routes/NewPoll';
-import MoviePolls from './routes/MoviePolls';
+import Result from './routes/Result';
 
 class App extends Component {
     constructor(props){
@@ -43,6 +44,7 @@ class App extends Component {
     fetchMovieInfo = async () => {
         const movieInfoObj = await service.getMovie();
         const movieInfo = movieInfoObj.data;
+        //console.log('movieinfo:', movieInfo);
 
         this.setState({
             movieInfo
@@ -54,9 +56,19 @@ class App extends Component {
             <Router>
                 <Wrapper>
                     <Header/>
-                    <Route exact path="/" component={PollList}></Route>
-                    <Route path="/moviepolls" component={MoviePolls}/>
+                    <Route exact path="/"
+                           render={(...props) => <PollList {...props} 
+                                                             pollTitle={this.state.pollTitle} />}/>
+                    <Route path="/pollitem" 
+                           render={(...props) => <PollItem {...props} 
+                                                             movieInfo={this.state.movieInfo}
+                                                             toggleModal={this.toggleModal} 
+                                                             pollTitle={this.state.pollTitle} />} />
                     <Route path="/newpoll" component={NewPoll}/>
+                    <Route path="/result" component={Result}/>
+                    {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
+                                                        toggleModal={this.toggleModal} 
+                                                        selectedData={this.state.selectedData}/> : ""}
                 </Wrapper>
             </Router>
         );
