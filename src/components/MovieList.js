@@ -3,7 +3,7 @@ import { Movie } from './';
 
 const MovieList = (props) => {
     return (
-        <section className="MoviePolls__MovieList">
+        <section className="MoviePolls__MovieList MoviePolls__section">
             {props.movieInfo.map((i, key) => {
                 return  <Movie data={i} key={key} toggleModal={props.toggleModal} movieInfo={props.movieInfo}/>
             })}
