@@ -31,6 +31,9 @@ dl, dd {
     margin: 0;
 }
 
-section, article, figure {
+section, article, figure, fieldset {
     margin: 0;
+}
+a {
+    text-decoration: none;
 }

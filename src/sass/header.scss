@@ -1,9 +1,52 @@
-.MoviePolls__title {
-    background: white;
-    color: $color-main;
-    border-bottom: 2px $color-main solid;
-    font-size: 2rem;
-    padding: 1.5rem 3rem;
-    text-align: center;
-    font-weight: 600;
+.MoviePolls {
+    header {
+        background: white;
+    }
+    &__title {
+        padding: 1.5rem 3rem;
+        text-align: center;
+        a {
+            color: $color-main;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+
+    &__Menu {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 0.3rem;
+
+        &__item {
+            height: 3rem;
+            line-height: 3rem;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;            
+            border-radius: 0.4rem 0.4rem 0 0;
+            border-left: 0.1rem #fff solid;
+            border-right: 0.1rem #fff solid;
+
+            a {
+                background-color: $color-main;
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                display: block;
+                border-radius: 0.4rem 0.4rem 0 0;
+
+                &:hover {
+                    background-color: $color-bg;
+                    color: $color-main;
+                    height: 3.5rem;
+                }
+
+                &:active, &.active {
+                    background-color: $color-bg;
+                }
+            }
+        }
+    }
 }
