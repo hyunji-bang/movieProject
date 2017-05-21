@@ -1,6 +1,19 @@
 @media only screen and (max-width: 603px){
+    .MoviePolls__section {
+        padding: 2rem 0 0;
+    }
+    .NewPoll{
+        &__Selection {
+            margin: 1rem;
+            padding: 1rem;
+        }
+        form fieldset {
+            margin: 1rem;
+            padding: 1rem;
+
+        }
+    }
     .PollItem{
-        padding: 3rem 0 0;
         .Modal {
             width: 100%;
             height: 100%;

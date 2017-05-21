@@ -31,15 +31,11 @@ class ModalWrap extends Component { //
                         </p>
 
                         <div className="Modal__button">
-                            <Link to="/result">
-                                <button className="Modal__button__confirm" type="submit"
-                                        // 여러 함수를 실행시켜 주기 위해 onClick시 {()=>{}} 형태로 수정
-                                        onClick={()=>{this.props.sendVoteInfo(this.props.selectedData.pollId,
-                                                                            this.props.selectedData.movieId);
-                                                    this.props.toggleModal();}}>
-                                    Vote
-                                </button>
-                            </Link>
+                            <button className="Modal__button__confirm" type="submit" onClick={() => {
+                                this.props.setVote(this.props.pollData.id, this.props.selectedData.id, this.state.name);
+                            }}>
+                                Vote
+                            </button>
                             <button className="Modal__button__cancel"  type="reset" 
                                     onClick={this.props.toggleModal}>
                                 Cancel
