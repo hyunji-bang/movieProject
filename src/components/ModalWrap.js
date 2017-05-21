@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Route, Link } from 'react-router-dom';
 
 class ModalWrap extends Component { // 
     constructor(props) { // movieInfo, toggleModal, selectedData, sendVoteInfo
@@ -9,7 +10,8 @@ class ModalWrap extends Component { //
     }
 
     render(){
-        console.log(this.props);
+        // console.log('this.props:',this.props);
+        //console.log('this.props.selectedData.pollId:', this.props.selectedData.pollId)
         return (
                 <div className="ModalWrap">
                     <div className="Modal">
@@ -20,20 +22,24 @@ class ModalWrap extends Component { //
                         <button className="Modal__close"
                                 onClick={this.props.toggleModal}>X</button>
 
-                        <p className="input"><input type="text" onChange={(event) => {
-                                console.log(event.target.value); 
+                        <p className="Modal__input__name">
+                            <input id="input_name" type="text" placeholder="Please Input your name"
+                                   onChange={(event) => {
+                                //console.log(event.target.value); 
                                 this.setState({ name: event.target.value });
                             }}/>
                         </p>
 
                         <div className="Modal__button">
-                            <button className="Modal__button__confirm" type="submit"
-                                    // 여러 함수를 실행시켜 주기 위해 onClick시 {()=>{}} 형태로 수정
-                                    onClick={()=>{this.props.sendVoteInfo(this.props.selectedData.pollId,
-                                                                     this.props.selectedData.movieId);
-                                                  this.props.toggleModal();}}>
-                                Vote
-                            </button>
+                            <Link to="/result">
+                                <button className="Modal__button__confirm" type="submit"
+                                        // 여러 함수를 실행시켜 주기 위해 onClick시 {()=>{}} 형태로 수정
+                                        onClick={()=>{this.props.sendVoteInfo(this.props.selectedData.pollId,
+                                                                            this.props.selectedData.movieId);
+                                                    this.props.toggleModal();}}>
+                                    Vote
+                                </button>
+                            </Link>
                             <button className="Modal__button__cancel"  type="reset" 
                                     onClick={this.props.toggleModal}>
                                 Cancel

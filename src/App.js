@@ -12,7 +12,6 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state={
-            pollTitle: '',
             movieInfo: [],
             modalVisible: false,
             selectedData: {}
@@ -27,18 +26,7 @@ class App extends Component {
 
     // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
     componentDidMount() {
-        this.fetchPollInfo(1);
         this.fetchMovieInfo();
-    }
-
-
-    fetchPollInfo = async (pollId) => {
-        const poll = await service.getTitle(pollId);
-        const pollTitle = poll.data.title;
-
-        this.setState({
-            pollTitle
-        });
     }
 
     fetchMovieInfo = async () => {
@@ -52,7 +40,6 @@ class App extends Component {
     }
 
     sendVoteInfo = async (pollId, movieId, name) => {
-        console.log('pollId, movieId, name:', pollId, movieId, name);
         const vote = await service.postVote(pollId, movieId, name);
         //console.log('vote', vote);
     }
@@ -63,19 +50,21 @@ class App extends Component {
                 <Wrapper>
                     <Header/>
                     <Route exact path="/"
-                           render={(...props) => <PollList {...props} 
-                                                             pollTitle={this.state.pollTitle} />}/>
-                    <Route path="/pollitem" 
-                           render={(...props) => <PollItem {...props} 
+                           render={(props) => <PollList {...props} 
+                                                             pollTitle={this.state.pollTitle}/>}/>
+                    <Route path="/poll/:id" 
+                           render={(props) => <PollItem {...props} 
                                                              movieInfo={this.state.movieInfo}
                                                              toggleModal={this.toggleModal} 
                                                              pollTitle={this.state.pollTitle} />} />
-                    <Route path="/newpoll" component={NewPoll}/>
+                    <Route path="/newpoll" 
+                           render={(props) => <NewPoll {...props} 
+                                                             sendPollInfo={this.sendPollInfo}/>} />
                     <Route path="/result" component={Result}/>
                     {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
-                                                        toggleModal={this.toggleModal} 
-                                                        selectedData={this.state.selectedData}
-                                                        sendVoteInfo={this.sendVoteInfo}/> : ""}
+                                                          toggleModal={this.toggleModal} 
+                                                          selectedData={this.state.selectedData}
+                                                          sendVoteInfo={this.sendVoteInfo}/> : ""}
                 </Wrapper>
             </Router>
         );
