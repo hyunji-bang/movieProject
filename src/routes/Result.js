@@ -59,12 +59,14 @@ class Result extends Component {
 
                             {/* 투표한 사람들 목록 보여주기 */}
                             <dl className="Result__MovieList__item__voter">
-                                <dt>Voters</dt>
+                                <dt>Voter</dt>
                                 {i.votes.map((i, key) => {
                                     return (
                                         <dd key={key}>{i.name}</dd>
                                     )
                                 })}
+                                <dt>Total Vote</dt>
+                                <dd>{i.votes.length}</dd>
                             </dl>
                         </article>
                     )
