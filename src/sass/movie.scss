@@ -237,3 +237,13 @@
     }
 }
 
+.NoMatch {
+    min-height: 300px;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+    align-items: center;
+    justify-content: center;
+}
