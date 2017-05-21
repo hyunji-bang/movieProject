@@ -58,7 +58,7 @@ class NewPoll extends Component {
                                    }}/>
                         </p>
                     </fieldset>
-                    <Link to="/polllist" className="button__register"
+                    <Link to="/" className="button__register"
                         onClick={()=>{
                             services.postPoll(this.state.selectedData, this.state.title);
                         }}>

@@ -50,16 +50,22 @@ class Result extends Component {
         return (
             <section className="Result MoviePolls__section">
                 <h2>Poll Result</h2>
-                <div className="Result__list">
+                <div className="Result__MovieList">
                 {this.state.moivesData.map((i, key) => {
                     return (
-                        <article className="Result__list" key={key}>
-                            <img src={i.imageUrl} alt=""/>
-                            {i.votes.map((i, key) => {
-                                return (
-                                    <div key={key}>{i.name}</div>
-                                )
-                            })}
+                        <article className="Result__MovieList__item" key={key}>
+                            <strong className="Result__MovieList__item__title">{i.title} <span>({i.year})</span></strong>
+                            <img src={i.imageUrl} alt={i.title}/>
+
+                            {/* 투표한 사람들 목록 보여주기 */}
+                            <dl className="Result__MovieList__item__voter">
+                                <dt>Voters</dt>
+                                {i.votes.map((i, key) => {
+                                    return (
+                                        <dd key={key}>{i.name}</dd>
+                                    )
+                                })}
+                            </dl>
                         </article>
                     )
                 })}
