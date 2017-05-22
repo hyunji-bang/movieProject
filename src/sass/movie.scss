@@ -23,9 +23,13 @@
             padding: 1rem;
             color: #fff;
             text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
         }
         .button__register {
-            margin: 2rem 1rem;
+            margin: 2rem auto 1rem;
+            width: 80%;
+            border: 0;
         }
     }
 }
@@ -146,7 +150,7 @@
         padding: 2rem;
         margin: 1rem 0;
         border-radius: 0.5rem;
-        strong {
+        &__title {
             color: $color-main;
             margin-bottom: 0.5rem;
             display: block;
@@ -164,6 +168,7 @@
         &__item {
             width: 30%;
             cursor: pointer;
+            text-align: center;
             img { 
                 width: 100%; 
                 display: block;

@@ -19,6 +19,29 @@ class NewPoll extends Component {
         });
     }
 
+    inputSubmit(e) {
+        e.preventDefault();
+        services.postPoll(this.state.selectedData, 
+                           this.state.title).then(() => {
+                           this.props.history.push('/');
+                          })
+    }
+
+    validation() {
+        let inputTitle = this.state.title;
+        let selectedMovie = this.state.selectedData;
+        inputTitle = inputTitle.trim();
+
+        if(inputTitle.length === 0) {
+            alert('Please Fill the title');
+        } else if (selectedMovie.length === 0){
+            alert('Please Select movies');
+        } else if (selectedMovies.length < 2) {
+            alert('Please Select more than 2 movies');
+        }
+
+    }
+
     render(){
         // console.log('this.props: ',this.props)
         return (
@@ -26,7 +49,7 @@ class NewPoll extends Component {
                 <h2>Make a New Poll</h2>
 
                 <div className="NewPoll__Selection">
-                <strong>Please Select Movies for Making a New Poll</strong>
+                <strong className="NewPoll__Selection__title">Please Select Movies for Making a New Poll</strong>
                     <div className="NewPoll__MovieList">
                     {this.state.moviesData.map((i, key) => {
                         return (
@@ -43,27 +66,25 @@ class NewPoll extends Component {
                                 this.setState({ selectedData: data });
                             }}>
                                 <img src={i.imageUrl} />
+                                <strong>{i.title}</strong>
                             </article>
                         )
                     })}
                     </div>
                 </div>
-                <form>
+                <form onSubmit={(e) => this.inputSubmit(e)}>
                     <fieldset>
                         <p className="NewPoll__input__title">
-                            <label htmlFor="input_title">Please Input New Poll's title : </label>
-                            <input id="input_title" type="text" 
+                            <label htmlFor="input_title">Please Write a New Poll's title : </label>
+                            <input id="input_title" type="text" placeholder="ex) Which movie have you seen recently in theater? "
                                    onChange={(event) => {
-                                        this.setState({ title: event.target.value });
+                                        this.setState({ title: event.target.value })
                                    }}/>
                         </p>
                     </fieldset>
-                    <Link to="/" className="button__register"
-                        onClick={()=>{
-                            services.postPoll(this.state.selectedData, this.state.title);
-                        }}>
+                    <button className="button__register" type="submit">
                         Register
-                    </Link>
+                    </button>
                 </form>
             </section>
         )

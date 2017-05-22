@@ -8,10 +8,15 @@ class ModalWrap extends Component { //
             name : "" // input에서 받은 name
         }
     }
+    validation() {
+        let inputName = this.state.name;
+        inputName = inputName.trim();
 
+        if(inputName.length === 0) {
+            alert('Please Fill your name');
+        }
+    }
     render(){
-        // console.log('this.props:',this.props);
-        //console.log('this.props.selectedData.pollId:', this.props.selectedData.pollId)
         return (
                 <div className="ModalWrap">
                     <div className="Modal">
@@ -24,8 +29,7 @@ class ModalWrap extends Component { //
 
                         <p className="Modal__input__name">
                             <input id="input_name" type="text" placeholder="Please Input your name"
-                                   onChange={(event) => {
-                                //console.log(event.target.value); 
+                                   onChange={(event) => { 
                                 this.setState({ name: event.target.value });
                             }}/>
                         </p>
@@ -33,6 +37,7 @@ class ModalWrap extends Component { //
                         <div className="Modal__button">
                             <button className="Modal__button__confirm" type="submit" onClick={() => {
                                 this.props.setVote(this.props.pollData.id, this.props.selectedData.id, this.state.name);
+                                this.validation();
                             }}>
                                 Vote
                             </button>
