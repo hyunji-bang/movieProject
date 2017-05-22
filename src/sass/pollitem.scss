@@ -1,0 +1,59 @@
+.PollItem {
+    &__title {
+        padding: 0 1rem;
+    }
+    &__MovieList {
+        padding-top: 1rem;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        justify-content: center;
+        -webkit-justify-content: center;
+
+        &__item {
+            background-color: #fff;
+            box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
+            width: 33%;
+            margin: 0 0.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            &__title {
+                display: block;
+                font-size: 1.5rem;
+                    span {
+                        font-weight: normal;
+                        font-size: 1rem;
+                        vertical-align: middle;
+                    }
+            }
+
+            figure {
+                cursor: pointer;
+                margin-bottom: 10%;
+
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            &__desc {
+                font-size: 0.9rem;
+                padding: 0;
+                .movieDirector {
+                    font-weight: bold;
+                    margin-bottom: 2%;
+                    font-size: 1rem;
+                }
+                .movieGenres {
+                    font-weight: bold;
+                    font-size: 0.8rem;
+                }
+                .movieDesc {
+                    margin-top: 10px;
+                    color: $color-font-h;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.Result {
+    &__MovieList {
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        justify-content: center;
+        -webkit-justify-content: center;
+
+        &__item {
+            background-color: #fff;
+            box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
+            width: 33%;
+            margin: 0 0.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            &__title {
+                display: block;
+                font-size: 1.3rem;
+                    span {
+                        font-weight: normal;
+                        font-size: 0.9rem;
+                        vertical-align: middle;
+                    }
+            }
+            &__voter {
+                dt {
+                    border-bottom: 0.1rem #000 solid;
+                    margin-bottom: 0.5rem;
+                    font-weight: bold;
+                    margin-top: 0.5rem;
+                    font-size: 0.9rem;
+                }
+                dd {
+                    text-align: right;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+

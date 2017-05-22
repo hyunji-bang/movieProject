@@ -1,0 +1,68 @@
+.NewPoll{
+    form {
+        text-align: center;
+        fieldset {
+            border: 0;
+            background: #fff;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            
+        }
+    }
+    &__Selection {
+        border: 0;
+        background: #fff;
+        padding: 2rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        &__title {
+            color: $color-main;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    }
+    &__MovieList {
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+
+        &__item {
+            width: 30%;
+            cursor: pointer;
+            text-align: center;
+            img { 
+                width: 100%; 
+                display: block;
+            }
+            &--selected {
+                img {
+                    border: 4px #fa6462 solid;                    
+                }
+            }
+        }
+    }
+
+    &__input__title {
+        label {
+            width: 100%;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: $color-main;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            display: block;
+            height: 2rem;
+            padding: 0 0.5rem;
+            font-size: 0.8rem;
+        }
+    }
+}

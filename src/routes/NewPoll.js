@@ -11,6 +11,8 @@ class NewPoll extends Component {
             selectedData: [],
             moviesData: []
         }
+        this.validation = this.validation.bind(this);
+        this.inputSubmit = this.inputSubmit.bind(this);
     }
 
     componentWillMount() {
@@ -21,10 +23,11 @@ class NewPoll extends Component {
 
     inputSubmit(e) {
         e.preventDefault();
-        services.postPoll(this.state.selectedData, 
-                           this.state.title).then(() => {
-                           this.props.history.push('/');
-                          })
+        if (this.validation()) {
+            services.postPoll(this.state.selectedData, this.state.title).then(() => {
+                this.props.history.push('/');
+            });
+        }
     }
 
     validation() {
@@ -34,12 +37,12 @@ class NewPoll extends Component {
 
         if(inputTitle.length === 0) {
             alert('Please Fill the title');
+            return false;
         } else if (selectedMovie.length === 0){
             alert('Please Select movies');
-        } else if (selectedMovies.length < 2) {
-            alert('Please Select more than 2 movies');
+            return false;
         }
-
+        return true;
     }
 
     render(){
@@ -72,7 +75,7 @@ class NewPoll extends Component {
                     })}
                     </div>
                 </div>
-                <form onSubmit={(e) => this.inputSubmit(e)}>
+                <form onSubmit={(e) => this.inputSubmit(e) }>
                     <fieldset>
                         <p className="NewPoll__input__title">
                             <label htmlFor="input_title">Please Write a New Poll's title : </label>

@@ -1,14 +1,16 @@
 @media only screen and (max-width: 603px){
     .MoviePolls__section {
-        padding: 2rem 0 0;
+        padding: 2rem !important;
     }
     .NewPoll{
+        padding: 3rem 1rem !important;
+
         &__Selection {
-            margin: 1rem;
+            margin: 0;
             padding: 1rem;
         }
         form fieldset {
-            margin: 1rem;
+            margin: 0.5rem 0;
             padding: 1rem;
 
         }
@@ -22,12 +24,12 @@
         }
         &__MovieList {
             flex-direction: column;
-            padding: 1rem 3rem;
+            padding: 0;
             &__item{
                 padding: 1rem 2rem;
                 flex-direction: row;
                 width: 100%;
-                margin-bottom: 5%;
+                margin: 0 0 5%;
                 &__desc {
                     font-size: 1rem;
                 }
@@ -44,7 +46,7 @@
 @media only screen and (max-width: 480px){
     .PollItem{
         &__MovieList {
-            padding: 1rem 2rem;
+            padding: 0;
         }
     }
 }
