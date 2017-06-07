@@ -1,32 +1,31 @@
-.MoviePolls{
-    position: relative;
-    background: $color-bg;
-    min-height: 100vh;
-
+.PollItem {
+    &__title {
+        padding: 0 1rem;
+    }
     &__MovieList {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 3rem;
+        padding-top: 1rem;
         display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
         display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
         display: -webkit-flex;     /* NEW - Chrome */
         display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-
-        -webkit-justify-content: space-between;
-        justify-content: space-between;
+        justify-content: center;
+        -webkit-justify-content: center;
 
         &__item {
             background-color: #fff;
             box-shadow: 0 3px 6px #bbb, 0 3px 6px #bbb;
-            width: 31%;
+            width: 33%;
+            margin: 0 0.5rem;
             padding: 1rem;
             border-radius: 5px;
-            h2 {
-                span {
-                    font-weight: normal;
-                    font-size: 1rem;
-                    vertical-align: middle;
-                }
+            &__title {
+                display: block;
+                font-size: 1.5rem;
+                    span {
+                        font-weight: normal;
+                        font-size: 1rem;
+                        vertical-align: middle;
+                    }
             }
 
             figure {
@@ -58,4 +57,3 @@
         }
     }
 }
-

@@ -1,59 +1,39 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Wrapper, Header, MovieWrap, ModalWrap } from './components';
 import * as service from './services/post';
+
+import PollList from './routes/PollList';
+import PollItem from './routes/PollItem';
+import NewPoll from './routes/NewPoll';
+import Result from './routes/Result';
+import NoMatch from './routes/Nomatch';
 
 class App extends Component {
     constructor(props){
         super(props);
-        this.state={
-            pollTitle: '',
-            movieInfo: [],
-            modalVisible: false,
-            selectedData: {}
-        }
-        this.toggleModal = this.toggleModal.bind(this);
-    }
-
-    toggleModal(data) {
-        //console.log(data);
-        this.setState({ modalVisible: !this.state.modalVisible, selectedData: data});
-    }
-
-    // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
-    componentDidMount() {
-        this.fetchPollInfo(1);
-        this.fetchMovieInfo();
-    }
-
-
-    fetchPollInfo = async (pollId) => {
-        const poll = await service.getTitle(pollId);
-        const pollTitle = poll.data.title;
-
-        this.setState({
-            pollTitle
-        });
-    }
-
-    fetchMovieInfo = async () => {
-        const movieInfoObj = await service.getMovie();
-        const movieInfo = movieInfoObj.data;
-
-        this.setState({
-            movieInfo
-        });
     }
 
     render() {
         return (
+            <Router>
                 <Wrapper>
-                    <Header pollTitle={this.state.pollTitle}/>
-                    <MovieWrap movieInfo={this.state.movieInfo} 
-                               toggleModal={this.toggleModal} />
-                    {this.state.modalVisible ? <ModalWrap movieInfo={this.state.movieInfo} 
-                                                        toggleModal={this.toggleModal} 
-                                                        selectedData={this.state.selectedData}/> : ""}
+                    <Header/>
+                    <Switch>
+                        <Route exact path="/"
+                            render={(props) => <PollList {...props}/>}/>
+                        <Route path="/poll/:id" 
+                            render={(props) => <PollItem {...props} 
+                                                toggleModal={this.toggleModal} 
+                                                />} />
+                        <Route path="/newpoll" 
+                            render={(props) => <NewPoll {...props} 
+                                                sendPollInfo={this.sendPollInfo}/>} />
+                        <Route path="/result/:id" render={(props) => <Result {...props} />}/>
+                        <Route component={NoMatch}/>
+                    </Switch>
                 </Wrapper>
+            </Router>
         );
     }
 }

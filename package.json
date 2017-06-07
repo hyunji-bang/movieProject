@@ -11,11 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.1",
+    "html-webpack-plugin": "^2.28.0",
     "promise-polyfill": "^6.0.2",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-addons-update": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",

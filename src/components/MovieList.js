@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Movie } from './';
 
-const MovieList = (props) => {
+const MovieList = (props) => { // movieInfo, toggleModal, selectedData
     return (
         <section className="MoviePolls__MovieList">
-            {props.movieInfo.map((i, key) => {
-                return  <Movie data={i} key={key} toggleModal={props.toggleModal} movieInfo={props.movieInfo}/>
+            {props.movieInfo.map((item, num) => {
+                return  <Movie data={item} key={num} toggleModal={props.toggleModal} 
+                                                     movieInfo={props.movieInfo}/>
             })}
         </section>
     );
